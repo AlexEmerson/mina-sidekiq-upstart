@@ -112,7 +112,7 @@ namespace :sidekiq do
       #  cd "#{deploy_to}/#{current_path}"
       #  #{echo_cmd %[#{sidekiq} -d -e #{rails_env} -C #{sidekiq_config} -i #{idx} -P #{pid_file} -L #{sidekiq_log}] }
       #}
-      queue %[sudo start sidekiq app=#{deploy_to}/#{current_path} index=0 ]
+      queue %[sudo start sidekiq RAILS_ENV=#{rails_env} index=0]
     end
   end
 
